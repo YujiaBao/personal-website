@@ -10,6 +10,7 @@ export interface Publication {
   project?: string;
   abstract?: string;
   selected?: boolean;
+  tldr?: string;
 }
 
 export const publications: Publication[] = [
@@ -20,6 +21,7 @@ export const publications: Publication[] = [
     venue: "arXiv:2512.01420",
     year: 2025,
     arxiv: "2512.01420",
+    tldr: "PromptBridge introduces a training-free framework that learns cross-model prompt mappings to preserve performance when switching between different Large Language Models.",
   },
   {
     id: "yang2025webdart",
@@ -29,6 +31,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2510.06587",
     code: "https://github.com/UCSB-NLP-Chang/WebDART",
+    tldr: "WebDART enables LLM agents to handle complex web tasks by dynamically decomposing objectives into navigation, extraction, and execution subtasks with continuous replanning.",
   },
   {
     id: "wang2025mcp",
@@ -38,6 +41,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2508.20453",
     code: "https://github.com/Accenture/mcp-bench",
+    tldr: "MCP-Bench establishes a benchmark for evaluating LLM agents on realistic multi-step tasks involving tool use and coordination via the Model Context Protocol.",
   },
   {
     id: "kim2025sft",
@@ -46,6 +50,7 @@ export const publications: Publication[] = [
     venue: "arXiv:2506.15021",
     year: 2025,
     arxiv: "2506.15021",
+    tldr: "SFT-GO improves Large Language Model alignment by grouping tokens based on importance and optimizing with a weighted combination of worst-group and standard loss.",
   },
   {
     id: "rezazadeh2025collaborative",
@@ -54,6 +59,7 @@ export const publications: Publication[] = [
     venue: "arXiv:2505.18279",
     year: 2025,
     arxiv: "2505.18279",
+    tldr: "This work introduces a framework for multi-user, multi-agent collaborative memory with asymmetric, time-evolving access controls to ensure safe knowledge sharing.",
   },
   {
     id: "wu2025advertising",
@@ -62,6 +68,7 @@ export const publications: Publication[] = [
     venue: "arXiv:2505.18425",
     year: 2025,
     arxiv: "2505.18425",
+    tldr: "This position paper proposes design principles and user strategies for identifying and mitigating commercial bias in generative AI outputs.",
   },
   {
     id: "faltings2025enhancing",
@@ -70,6 +77,7 @@ export const publications: Publication[] = [
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL)",
     year: 2025,
     arxiv: "2503.17860",
+    tldr: "This method enhances retrieval systems by extracting logical structures from queries and composing cosine similarity scores to handle complex logical reasoning at inference time.",
   },
   {
     id: "yang2025kvlink",
@@ -79,6 +87,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2502.16002",
     code: "https://github.com/UCSB-NLP-Chang/KVLink",
+    tldr: "KVLink accelerates LLM inference and improves accuracy by precomputing and efficiently reusing Key-Value caches for retrieved documents.",
   },
   {
     id: "kuo2025h",
@@ -88,6 +97,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2502.12893",
     code: "https://github.com/dukeceicenter/jailbreak-reasoning-openai-o1o3-deepseek-r1",
+    tldr: "H-CoT demonstrates how attackers can hijack the chain-of-thought reasoning mechanism in Large Reasoning Models to bypass safety guardrails.",
   },
   {
     id: "wang2025dragon",
@@ -96,6 +106,7 @@ export const publications: Publication[] = [
     venue: "arXiv:2511.05784",
     year: 2025,
     arxiv: "2511.05784",
+    tldr: "DRAGON is a reasoning-based framework that uses in-context chain-of-thought to detect and unlearn harmful knowledge in deployed LLMs without requiring retain data.",
   },
   {
     id: "pang2024improving",
@@ -105,6 +116,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2410.10877",
     code: "https://github.com/UCSC-REAL/DS2",
+    tldr: "DS2 improves data efficiency for instruction tuning by using a diversity-aware score curation method to correct biases in LLM-based rating systems.",
   },
   {
     id: "wang2024llm",
@@ -114,6 +126,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2410.11143",
     code: "https://github.com/UCSC-REAL/FLAT",
+    tldr: "FLAT enables LLM unlearning using only forget data by maximizing the divergence between the forget response and a template answer via loss adjustment.",
   },
   {
     id: "rezazadeh2024isolated",
@@ -122,6 +135,7 @@ export const publications: Publication[] = [
     venue: "International Conference on Learning Representations (ICLR)",
     year: 2025,
     arxiv: "2410.14052",
+    tldr: "MemTree optimizes long-term memory in LLMs using a dynamic, hierarchical tree structure that organizes information by abstraction level.",
   },
   {
     id: "wu2024sample",
@@ -131,6 +145,7 @@ export const publications: Publication[] = [
     year: 2025,
     arxiv: "2402.01929",
     code: "https://github.com/rmwu/sea-reproduce",
+    tldr: "This paper proposes a foundation model approach for causal discovery that predicts causal graphs from summary statistics, offering robustness to misspecification.",
   },
   {
     id: "bao2024harnessing",
@@ -139,6 +154,7 @@ export const publications: Publication[] = [
     venue: "arXiv:2406.06559",
     year: 2024,
     arxiv: "2406.06559",
+    tldr: "Fortune Analytics Language Model (FALM) leverages a curated knowledge base and time-aware reasoning to provide accurate business insights and data visualization.",
   },
   {
     id: "bao2023channel",
@@ -148,6 +164,7 @@ export const publications: Publication[] = [
     year: 2024,
     arxiv: "2309.16108",
     code: "https://github.com/insitro/ChannelViT",
+    tldr: "ChannelViT enhances Vision Transformers for multi-channel imaging by constructing patch tokens independently per channel and using hierarchical channel sampling.",
   },
   {
     id: "bao2023contextual",
@@ -158,6 +175,7 @@ export const publications: Publication[] = [
     arxiv: "2305.19402",
     selected: true,
     code: "https://github.com/insitro/ContextViT",
+    tldr: "ContextViT introduces a context token to encapsulate group-specific information, allowing Vision Transformers to adapt to distribution shifts at inference time.",
   },
   {
     id: "bao2022learning",
@@ -168,6 +186,7 @@ export const publications: Publication[] = [
     arxiv: "2204.13749",
     code: "https://github.com/YujiaBao/ls",
     selected: true,
+    tldr: "Learning to Split (ls) automatically detects dataset biases by identifying data splits where models trained on one split generalize poorly to the other.",
   },
   {
     id: "bao2021learning",
@@ -178,6 +197,7 @@ export const publications: Publication[] = [
     arxiv: "2106.07847",
     code: "https://github.com/YujiaBao/Tofu",
     selected: true,
+    tldr: "This work regularizes target classifiers in transfer learning by explicitly modeling and transferring unstable features from the source domain to maintain robustness.",
   },
   {
     id: "bao2021predict",
@@ -188,6 +208,7 @@ export const publications: Publication[] = [
     arxiv: "2105.12628",
     code: "https://github.com/YujiaBao/Predict-then-Interpolate",
     selected: true,
+    tldr: "Predict then Interpolate (PI) learns stable classifiers by interpolating between correct and incorrect prediction distributions to uncover invariant correlations.",
   },
   {
     id: "bao2020fewshot",
@@ -198,6 +219,7 @@ export const publications: Publication[] = [
     arxiv: "1908.06039",
     code: "https://github.com/YujiaBao/Distributional-Signatures",
     selected: true,
+    tldr: "This method improves few-shot text classification by weighting lexical representations with distributional signatures that encode word occurrence patterns.",
   },
   {
     id: "r2a",
@@ -208,5 +230,6 @@ export const publications: Publication[] = [
     arxiv: "1808.09367",
     code: "https://github.com/YujiaBao/R2A",
     selected: true,
+    tldr: "This paper enhances model interpretability and performance in low-resource settings by mapping human rationales to continuous machine attention.",
   },
 ];

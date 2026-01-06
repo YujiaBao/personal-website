@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Github, Twitter, Linkedin, Mail, FileText, ExternalLink, Code, BookOpen, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, Twitter, Linkedin, Mail, FileText, ExternalLink, Code, BookOpen, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { profile } from "@/data/profile";
 import { publications } from "@/data/publications";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showNavName, setShowNavName] = useState(false);
+  const [showTldrs, setShowTldrs] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,9 +120,9 @@ export default function Home() {
             <div className="relative w-full max-w-sm mx-auto md:max-w-none">
               <Image 
                 src="/assets/img/profile_new.jpeg" 
-                alt="Yujia Bao" 
-                width={1086} 
-                height={724} 
+                alt="Yujia Bao"
+                width={1086}
+                height={724}
                 className="rounded-2xl shadow-xl"
                 priority
               />
@@ -208,7 +209,26 @@ export default function Home() {
 
         {/* Publications Section */}
         <section id="publications" className="container-width scroll-mt-24">
-          <SectionTitle>Publications</SectionTitle>
+          <div className="flex items-baseline justify-between mb-12">
+            <SectionTitle>Publications</SectionTitle>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-slate-600">Show TL;DR</span>
+              <button
+                onClick={() => setShowTldrs(!showTldrs)}
+                className={cn(
+                  "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                  showTldrs ? "bg-blue-600" : "bg-slate-200"
+                )}
+              >
+                <span
+                  className={cn(
+                    "inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-200 ease-in-out",
+                    showTldrs ? "translate-x-6" : "translate-x-1"
+                  )}
+                />
+              </button>
+            </div>
+          </div>
           
           <div className="space-y-12">
             {Array.from(new Set(publications.map(p => p.year)))
@@ -233,15 +253,32 @@ export default function Home() {
                               </span>
                             ))}
                           </div>
+                          
                           <div className="text-sm text-slate-500 font-medium">
                             {pub.venue}
                           </div>
+
+                          <AnimatePresence>
+                            {showTldrs && pub.tldr && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden mt-2 mb-1"
+                              >
+                                <div className="text-sm text-slate-600 bg-slate-50 px-3 py-2 rounded-md border-l-4 border-blue-500 italic">
+                                  {pub.tldr}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                         
-                        <div className="flex gap-3">
+                        <div className="flex flex-wrap gap-3 items-center">
                           {pub.arxiv && (
                             <a 
-                              href={`https://arxiv.org/abs/${pub.arxiv}`} 
+                              href={`https://arxiv.org/abs/${pub.arxiv}`}
                               target="_blank"
                               className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-md hover:bg-slate-50 hover:text-blue-600 hover:border-slate-300 transition-all"
                             >
@@ -294,16 +331,16 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-function SocialLink({ 
-  href, 
-  icon, 
-  label, 
-  variant = "pill" 
-}: { 
-  href: string; 
-  icon: React.ReactNode; 
-  label: string; 
-  variant?: "pill" | "text" | "icon" 
+function SocialLink({
+  href,
+  icon,
+  label,
+  variant = "pill"
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  variant?: "pill" | "text" | "icon"
 }) {
   const variants = {
     pill: "bg-slate-100 text-slate-700 px-4 py-2 rounded-full font-medium text-sm hover:bg-slate-200 hover:text-slate-900",
