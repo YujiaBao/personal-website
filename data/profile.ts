@@ -13,7 +13,7 @@ export const profile = {
   bio: `
     I am a machine learning researcher and a life-long engineer. I love building things—pushing the frontier of AI to make it more useful, safe, and available to everyone.
     
-    Currently, I am an Associate Director at Accenture, where I lead the research and engineering development of <a href="https://airefinery.accenture.com" target="_blank" class="text-blue-600 hover:underline">AI Refinery</a>, an agentic AI platform designed to help Fortune 500 companies build and govern complex agentic workflows.
+    Currently, I am an Associate Director at Accenture, where I lead the research and engineering development of <a href="https://airefinery.accenture.com" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">AI Refinery</a>, an agentic AI platform designed to help Fortune 500 companies build and govern complex agentic workflows.
 
     My recent research spans scalable agent architectures, context management, LLM post-training, and evaluation. I am most excited about research that has direct product impact.
   `,

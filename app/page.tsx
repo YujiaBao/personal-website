@@ -163,10 +163,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div 
             className="glass-panel p-8 rounded-2xl prose dark:prose-invert max-w-none text-lg text-slate-600 dark:text-slate-300 leading-relaxed space-y-6"
           >
             {profile.bio.split('\n\n').map((paragraph, i) => (
@@ -175,7 +172,7 @@ export default function Home() {
             <p>
               I received my Ph.D. in Computer Science from <a href="https://www.csail.mit.edu" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">MIT CSAIL</a>, advised by <a href="https://www.regina.csail.mit.edu" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">Regina Barzilay</a>.
             </p>
-          </motion.div>
+          </div>
         </section>
 
         {/* Experience Section */}
