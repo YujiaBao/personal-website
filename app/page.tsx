@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Twitter, Linkedin, Mail, FileText, ExternalLink, Code, BookOpen, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
@@ -152,7 +152,7 @@ export default function Home() {
             <div className="relative w-full max-w-sm mx-auto md:max-w-none group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl blur opacity-10 group-hover:opacity-25 transition duration-1000 dark:opacity-25 dark:group-hover:opacity-50"></div>
               <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-800">
-                 <Image 
+                 <ExportedImage 
                   src="/assets/img/profile_new.jpeg" 
                   alt="Yujia Bao"
                   fill
