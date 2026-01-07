@@ -1,5 +1,8 @@
 # Yujia Bao - Personal Website
 
+[![Deploy Status](https://github.com/yujiabao/yujiabao.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/yujiabao/yujiabao.github.io/actions/workflows/deploy.yml)
+[![Security Audit](https://github.com/yujiabao/yujiabao.github.io/actions/workflows/audit.yml/badge.svg)](https://github.com/yujiabao/yujiabao.github.io/actions/workflows/audit.yml)
+
 This is the source code for my personal website, hosted at [www.yujia.io](https://www.yujia.io).
 
 It is built as a modern, static portfolio site using **Next.js** and **Tailwind CSS**.
