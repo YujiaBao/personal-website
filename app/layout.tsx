@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
 export const metadata: Metadata = {
-  title: "Yujia Bao - Machine Learning Researcher",
+  title: "Yujia Bao's homepage",
   description: "Machine Learning Researcher and Engineer. Associate Director at Accenture.",
 };
 
