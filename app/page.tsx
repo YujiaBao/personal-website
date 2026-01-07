@@ -136,7 +136,7 @@ export default function Home() {
             className="prose prose-slate max-w-none text-lg text-slate-600 leading-relaxed space-y-6"
           >
             {profile.bio.split('\n\n').map((paragraph, i) => (
-              <p key={i}>{paragraph.trim()}</p>
+              <p key={i} dangerouslySetInnerHTML={{ __html: paragraph.trim() }} />
             ))}
             <p>
               I received my Ph.D. in Computer Science from <a href="https://www.csail.mit.edu" className="text-blue-600 hover:underline">MIT CSAIL</a>, advised by <a href="https://www.regina.csail.mit.edu" className="text-blue-600 hover:underline">Regina Barzilay</a>.

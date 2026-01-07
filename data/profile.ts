@@ -11,11 +11,11 @@ export const profile = {
     resume: "/assets/pdf/resume.pdf",
   },
   bio: `
-    Hello! I am a machine learning researcher and a life-long engineer who cannot live without Vim. My goal is to push the frontier of AI and make it useful and safe for humanity.
+    I am a machine learning researcher and a life-long engineer. I love building things—pushing the frontier of AI to make it more useful, safe, and available to everyone.
     
-    Currently, I manage a team of 80+ research scientists and engineers at Accenture, focusing on AI for the enterprise. I lead the development of AI Refinery, an agentic AI platform driving AI adoption for Fortune 500 companies.
+    Currently, I am an Associate Director at Accenture, where I lead the research and engineering development of <a href="https://airefinery.accenture.com" target="_blank" class="text-blue-600 hover:underline">AI Refinery</a>, an agentic AI platform designed to help Fortune 500 companies build and govern complex agentic workflows.
 
-    My work spans building scalable agent architectures, optimizing LLM post-training, and advancing fundamental machine learning algorithms. I am driven by the excitement of "zero to one" innovation—translating cutting-edge research into stable, production-grade platforms that solve real-world problems.
+    My recent research spans scalable agent architectures, context management, LLM post-training, and evaluation. I am most excited about research that has direct product impact.
   `,
   education: [
     {
@@ -42,7 +42,7 @@ export const profile = {
     {
       role: "Associate Director",
       company: "Accenture",
-      description: "Leading a team of 80+ researchers and engineers. Developing AI Refinery, an agentic AI platform.",
+      description: "Leading a team of 80+ researchers and engineers. Developing AI Refinery, an agentic AI platform for enterprise.",
       year: "2023 - Current",
     },
     {
@@ -54,7 +54,7 @@ export const profile = {
     {
       role: "Researcher",
       company: "MIT CSAIL",
-      description: "Ph.D. research on machine learning, fairness, and interpretability.",
+      description: "Machine learning research on interpretability, transfer learning, and fairness.",
       year: "2017 - 2022",
     },
   ],
@@ -68,20 +68,17 @@ export const profile = {
       ]
     },
     {
-      title: "LLM Customization",
-      description: "Leading LLM customization efforts including pre-training, domain adaptation, and post-training optimization (KV-cache reuse, targeted unlearning).",
+      title: "Enterprise LLM Customization",
+      description: "Leading the development of customized LLMs for high-stakes business and media domains.",
       links: [
-        { name: "NeurIPS 2025", url: "https://arxiv.org/abs/2502.16002" },
-        { name: "ICLR 2025", url: "https://arxiv.org/abs/2410.11143" },
+        { name: "Tech Report", url: "https://arxiv.org/html/2406.06559v1" },
+        { name: "Fortune Analytics", url: "https://www.youtube.com/watch?v=zSyk_Cby0CM" },
       ]
     },
     {
       title: "Machine Learning Foundations",
-      description: "Research on transformer architectures (Channel ViT, Contextual ViT), fairness, and human-machine interaction.",
-      links: [
-        { name: "ICLR 2024", url: "https://arxiv.org/abs/2309.16108" },
-        { name: "ICML 2021", url: "https://proceedings.mlr.press/v139/bao21a.html" },
-      ]
+      description: "Foundational research on efficient post-training, inference, hierarchical memory, cross-user collaboration, agent evaluation and more. See publications below for details.",
+      links: []
     }
   ]
 };
