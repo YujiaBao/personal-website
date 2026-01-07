@@ -153,7 +153,7 @@ export default function Home() {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl blur opacity-10 group-hover:opacity-25 transition duration-1000 dark:opacity-25 dark:group-hover:opacity-50"></div>
               <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-800">
                  <ExportedImage 
-                  src="/assets/img/profile_new.jpeg" 
+                  src="/assets/img/profile.jpeg" 
                   alt="Yujia Bao"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
