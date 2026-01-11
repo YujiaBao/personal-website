@@ -139,13 +139,13 @@ export default function Home() {
                 </h2>
               </div>
               
-              <div className="flex gap-2">
-                <SocialLink href={profile.social.github} icon={<Github size={20} />} label="GitHub" variant="icon" />
-                <SocialLink href={profile.social.twitter} icon={<Twitter size={20} />} label="Twitter" variant="icon" />
-                <SocialLink href={profile.social.linkedin} icon={<Linkedin size={20} />} label="LinkedIn" variant="icon" />
-                <SocialLink href={profile.social.scholar} icon={<BookOpen size={20} />} label="Scholar" variant="icon" />
-                <SocialLink href={`mailto:${profile.email}`} icon={<Mail size={20} />} label="Email" variant="icon" />
-                <SocialLink href={profile.social.resume} icon={<FileText size={20} />} label="Resume" variant="icon" />
+              <div className="flex gap-3">
+                <SocialLink href={profile.social.github} icon={<Github size={24} />} label="GitHub" variant="icon" />
+                <SocialLink href={profile.social.scholar} icon={<BookOpen size={24} />} label="Scholar" variant="icon" />
+                <SocialLink href={profile.social.twitter} icon={<Twitter size={24} />} label="Twitter" variant="icon" />
+                <SocialLink href={profile.social.linkedin} icon={<Linkedin size={24} />} label="LinkedIn" variant="icon" />
+                <SocialLink href={profile.social.resume} icon={<FileText size={24} />} label="Resume" variant="icon" />
+                <SocialLink href={`mailto:${profile.email}`} icon={<Mail size={24} />} label="Email" variant="icon" />
               </div>
             </div>
 
@@ -345,14 +345,9 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-slate-200/60 dark:border-slate-800/50 py-12 bg-slate-100/50 dark:bg-slate-950 transition-colors">
-        <div className="container-width flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="container-width flex justify-center">
           <div className="text-slate-500 dark:text-slate-600 text-sm">
             © {new Date().getFullYear()} Yujia Bao. All rights reserved.
-          </div>
-          <div className="flex gap-6">
-            <SocialLink href={profile.social.github} icon={<Github size={18} />} label="GitHub" variant="text" />
-            <SocialLink href={profile.social.twitter} icon={<Twitter size={18} />} label="Twitter" variant="text" />
-            <SocialLink href={profile.social.linkedin} icon={<Linkedin size={18} />} label="LinkedIn" variant="text" />
           </div>
         </div>
       </footer>
@@ -382,7 +377,7 @@ function SocialLink({
   const variants = {
     pill: "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full font-medium text-sm border border-slate-200 dark:border-transparent hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-100 shadow-sm dark:shadow-none transition-all",
     text: "text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-300",
-    icon: "text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-slate-800 p-2 rounded-full transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm dark:hover:shadow-none"
+    icon: "text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-slate-800 p-2.5 rounded-full transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm dark:hover:shadow-none"
   };
 
   return (
