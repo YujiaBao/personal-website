@@ -296,11 +296,37 @@ export default function Home() {
                           <AnimatePresence>
                             {expandedPapers.has(pub.id) && pub.tldr && (
                               <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="overflow-hidden mt-2 mb-1"
+                                key="tldr"
+                                initial="collapsed"
+                                animate="expanded"
+                                exit="collapsed"
+                                variants={{
+                                  expanded: { 
+                                    opacity: 1, 
+                                    height: "auto", 
+                                    marginTop: "0.5rem", 
+                                    marginBottom: "0.25rem",
+                                    transition: { 
+                                      duration: 0.4,
+                                      type: "spring", 
+                                      bounce: 0,
+                                      opacity: { duration: 0.25, delay: 0.1 } 
+                                    } 
+                                  },
+                                  collapsed: { 
+                                    opacity: 0, 
+                                    height: 0, 
+                                    marginTop: 0, 
+                                    marginBottom: 0,
+                                    transition: { 
+                                      duration: 0.3,
+                                      type: "spring", 
+                                      bounce: 0,
+                                      opacity: { duration: 0.15 } 
+                                    }
+                                  }
+                                }}
+                                className="overflow-hidden"
                               >
                                 <div className="text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50 px-3 py-2 rounded-md border-l-4 border-blue-600 dark:border-blue-500 italic">
                                   {pub.tldr}
