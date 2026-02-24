@@ -7,7 +7,7 @@ const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" })
 
 export const metadata: Metadata = {
   title: "Yujia Bao's homepage",
-  description: "Machine Learning Researcher and Engineer. Associate Director at Accenture.",
+  description: "Machine Learning Researcher. Member of Technical Staff at Thinking Machines Lab.",
 };
 
 export default function RootLayout({

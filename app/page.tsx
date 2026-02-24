@@ -131,12 +131,21 @@ export default function Home() {
           >
             <div className="space-y-6">
               <div>
-                <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 mb-2">
+                <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 mb-6">
                   {profile.name}
                 </h1>
-                <h2 className="text-xl md:text-2xl font-medium text-blue-600 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-blue-400 dark:to-violet-400">
-                  {profile.role}
-                </h2>
+                <div className="space-y-1">
+                  <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300">
+                    {profile.role.split('\n')[0]}
+                  </h2>
+                  {profile.role.includes('\n') && (
+                    <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300">
+                      <a href="https://thinkingmachines.ai" target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        @thinkingmachines
+                      </a>
+                    </h2>
+                  )}
+                </div>
               </div>
               
               <div className="flex gap-3">

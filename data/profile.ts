@@ -1,6 +1,6 @@
 export const profile = {
   name: "Yujia Bao",
-  role: "Machine Learning Researcher",
+  role: "Member of Technical Staff\nThinking Machines Lab",
   email: "bao@yujia.io",
   location: "United States",
   social: {
@@ -12,8 +12,6 @@ export const profile = {
   },
   bio: `
     I am a machine learning researcher and a life-long engineer. I love building things—pushing the frontier of AI to make it more useful, safe, and available to everyone.
-    
-    Currently, I am an Associate Director at Accenture, where I lead the research and engineering development of <a href="https://airefinery.accenture.com" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">AI Refinery</a>, an agentic AI platform designed to help Fortune 500 companies build and govern complex agentic workflows.
 
     My recent research spans scalable agent architectures, context management, LLM post-training, and evaluation. I am most excited about research that has direct product impact.
   `,
@@ -40,10 +38,16 @@ export const profile = {
   ],
   experience: [
     {
+      role: "Member of Technical Staff",
+      company: "Thinking Machines Lab",
+      description: "Tinker.",
+      year: "2026 - Current",
+    },
+    {
       role: "Associate Director",
       company: "Accenture",
       description: "Leading a team of 80+ researchers and engineers. Developing AI Refinery, an agentic AI platform for enterprise.",
-      year: "2023 - Current",
+      year: "2023 - 2026",
     },
     {
       role: "Lead Machine Learning Scientist",
