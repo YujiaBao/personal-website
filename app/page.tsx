@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from "react";
 import ExportedImage from "next-image-export-optimizer";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Twitter, Linkedin, Mail, FileText, ExternalLink, Code, BookOpen, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, FileText, ExternalLink, Code, BookOpen, Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
 import { publications } from "@/data/publications";
 import { cn } from "@/lib/utils";
 import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showNavName, setShowNavName] = useState(false);
   const [expandedPapers, setExpandedPapers] = useState<Set<string>>(new Set());
@@ -56,7 +54,6 @@ export default function Home() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(id);
       setMobileMenuOpen(false);
     }
   };
