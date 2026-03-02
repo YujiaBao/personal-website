@@ -15,6 +15,15 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "tang2026adamab",
+    title: "Adaptive Data Augmentation with Multi-armed Bandit: Sample-Efficient Embedding Calibration for Implicit Pattern Recognition",
+    authors: ["Minxue Tang", "Yangyang Yu", "Aolin Ding", "Maziyar Baran Pouyan", "Taha Belkhouja", "Yujia Bao"],
+    venue: "Conference on Computer Vision and Pattern Recognition (CVPR)",
+    year: 2026,
+    arxiv: "2602.19385",
+    tldr: "ADAMAB uses an adaptive data augmentation strategy based on multi-armed bandits to calibrate embeddings for few-shot implicit pattern recognition without accessing model parameters.",
+  },
+  {
     id: "wang2025promptbridge",
     title: "PromptBridge: Cross-Model Prompt Transfer for Large Language Models",
     authors: ["Yaxuan Wang", "Quan Liu", "Zhenting Wang", "Zichao Li", "Wei Wei", "Yang Liu", "Yujia Bao"],
