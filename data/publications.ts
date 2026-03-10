@@ -15,6 +15,16 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "yang2026ares",
+    title: "Ares: Adaptive Reasoning Effort Selection for Efficient LLM Agents",
+    authors: ["Jingbo Yang", "Bairu Hou", "Wei Wei", "Yujia Bao", "Shiyu Chang"],
+    venue: "arXiv:2603.07915",
+    year: 2026,
+    arxiv: "2603.07915",
+    code: "https://github.com/UCSB-NLP-Chang/Ares",
+    tldr: "Ares learns to adaptively select reasoning effort across multi-turn agentic interactions, applying deeper thinking only at critical steps to improve efficiency without sacrificing task success.",
+  },
+  {
     id: "tang2026adamab",
     title: "Adaptive Data Augmentation with Multi-armed Bandit: Sample-Efficient Embedding Calibration for Implicit Pattern Recognition",
     authors: ["Minxue Tang", "Yangyang Yu", "Aolin Ding", "Maziyar Baran Pouyan", "Taha Belkhouja", "Yujia Bao"],
