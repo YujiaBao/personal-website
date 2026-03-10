@@ -115,6 +115,7 @@ export const publications: Publication[] = [
     venue: "International Conference on Learning Representations (ICLR)",
     year: 2026,
     arxiv: "2511.05784",
+    code: "https://github.com/supergirl-os/DRAGON",
     tldr: "DRAGON is a reasoning-based framework that uses in-context chain-of-thought to detect and unlearn harmful knowledge in deployed LLMs without requiring retain data.",
   },
   {
