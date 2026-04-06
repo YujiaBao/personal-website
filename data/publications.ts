@@ -58,6 +58,7 @@ export const publications: Publication[] = [
     authors: ["Yaxuan Wang", "Zhongteng Cai", "Yujia Bao", "Xueru Zhang", "Yang Liu"],
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL)",
     year: 2026,
+    arxiv: "2601.05184",
   },
   {
     id: "wang2025mcp",

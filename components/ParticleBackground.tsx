@@ -7,7 +7,6 @@ export default function ParticleBackground() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Check system preference
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDark(mediaQuery.matches);
 
@@ -23,7 +22,6 @@ export default function ParticleBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Define Particle class first to satisfy TypeScript
     class Particle {
       x: number;
       y: number;
@@ -34,9 +32,9 @@ export default function ParticleBackground() {
       constructor(w: number, h: number) {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.size = Math.random() * 1.5 + 0.5;
       }
 
       update(w: number, h: number) {
@@ -49,7 +47,9 @@ export default function ParticleBackground() {
 
       draw(isDarkTheme: boolean) {
         if (!ctx) return;
-        ctx.fillStyle = isDarkTheme ? "rgba(100, 116, 139, 0.2)" : "rgba(100, 116, 139, 0.4)";
+        ctx.fillStyle = isDarkTheme
+          ? "rgba(155, 149, 144, 0.12)"
+          : "rgba(107, 101, 96, 0.2)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -63,7 +63,7 @@ export default function ParticleBackground() {
 
     const initParticles = () => {
       particles = [];
-      const particleCount = Math.min(Math.floor((w * h) / 15000), 100);
+      const particleCount = Math.min(Math.floor((w * h) / 20000), 80);
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle(w, h));
       }
@@ -77,12 +77,12 @@ export default function ParticleBackground() {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 150) {
+          if (distance < 120) {
             ctx.beginPath();
-            const opacity = 0.15 - distance / 1000;
-            ctx.strokeStyle = isDark 
-              ? `rgba(100, 116, 139, ${opacity})` 
-              : `rgba(100, 116, 139, ${opacity * 1.5})`;
+            const opacity = 0.08 - distance / 1500;
+            ctx.strokeStyle = isDark
+              ? `rgba(155, 149, 144, ${opacity})`
+              : `rgba(107, 101, 96, ${opacity * 1.5})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -95,12 +95,12 @@ export default function ParticleBackground() {
     const animate = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, w, h);
-      
+
       particles.forEach(p => {
         p.update(w, h);
         p.draw(isDark);
       });
-      
+
       drawLines();
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -118,8 +118,7 @@ export default function ParticleBackground() {
     };
 
     window.addEventListener("resize", handleResize);
-    
-    // Initial setup
+
     resize();
     animate();
 
