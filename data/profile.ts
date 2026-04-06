@@ -40,7 +40,7 @@ export const profile = {
     {
       role: "Member of Technical Staff",
       company: "Thinking Machines Lab",
-      description: "Tinker.",
+      description: "Developing SFT and RL recipes for end-to-end post-training. Leading the Tinker Cookbook framework development (top contributor).",
       year: "2026 - Current",
     },
     {
@@ -64,6 +64,14 @@ export const profile = {
   ],
   recentWork: [
     {
+      title: "Tinker: LLM Post-Training Platform",
+      description: "A post-training platform for customizing language models. Developing SFT and RL recipes, evals, and infrastructure, as well as documentation and community.",
+      links: [
+        { name: "Cookbook", url: "https://github.com/thinking-machines-lab/tinker-cookbook" },
+        { name: "Docs", url: "https://tinker-docs.thinkingmachines.ai" },
+      ]
+    },
+    {
       title: "AI Refinery: Enterprise Agentic Platform",
       description: "Leading engineering and research for AI Refinery, enabling developers to build and govern complex agentic workflows.",
       links: [
@@ -78,11 +86,6 @@ export const profile = {
         { name: "Tech Report", url: "https://arxiv.org/html/2406.06559v1" },
         { name: "Fortune Analytics", url: "https://www.youtube.com/watch?v=zSyk_Cby0CM" },
       ]
-    },
-    {
-      title: "Machine Learning Foundations",
-      description: "Foundational research on efficient post-training, inference, hierarchical memory, cross-user collaboration, agent evaluation and more. See publications below for details.",
-      links: []
     }
   ]
 };
