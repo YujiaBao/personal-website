@@ -11,9 +11,9 @@ export const profile = {
     resume: "/assets/pdf/resume.pdf",
   },
   bio: `
-    I am a machine learning researcher and a life-long engineer.
+    I am a machine learning researcher and a life-long engineer. I love building things—pushing the frontier of AI to make it more useful, safe, and available to everyone.
 
-    My recent research primarily focuses on LLM post-training as well as building agent frameworks that have integrated training, inference, and data refinement loops. I had some fun with pre-training from scratch earlier on. I am most excited about how AI is going to transform how people work.
+    My recent research spans scalable agent architectures, context management, LLM post-training, and evaluation. I am most excited about research that has direct product impact.
   `,
   education: [
     {

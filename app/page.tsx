@@ -16,6 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Show name in nav if scrolled past 100px
       setShowNavName(window.scrollY > 100);
     };
 
@@ -58,29 +59,29 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-surface-light dark:bg-surface-dark transition-colors duration-300">
+    <div className="min-h-screen relative overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <ParticleBackground />
-
+      
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-xl border-b border-border-light dark:border-border-dark transition-colors duration-200">
-        <div className="container-width h-14 flex items-center justify-between">
-          <div
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/50 transition-colors duration-300">
+        <div className="container-width h-16 flex items-center justify-between">
+          <div 
             className={cn(
-              "text-sm font-semibold tracking-wide uppercase cursor-pointer transition-opacity duration-300 text-text-light-primary dark:text-text-dark-primary",
-              showNavName ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto md:opacity-0"
+              "text-xl font-medium tracking-normal cursor-pointer transition-opacity duration-300 text-slate-900 dark:text-slate-100",
+              showNavName ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto md:opacity-0" 
             )}
             onClick={() => scrollTo("about")}
           >
             Yujia Bao
           </div>
-
+          
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-1">
+          <div className="hidden md:flex gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="text-xs font-medium tracking-wide text-text-light-muted dark:text-text-dark-muted hover:text-accent dark:hover:text-accent hover:bg-accent-glow px-3 py-1.5 transition-all duration-150"
+                className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 {item.label}
               </button>
@@ -88,25 +89,25 @@ export default function Home() {
           </div>
 
           {/* Mobile Nav Toggle */}
-          <button className="md:hidden p-2 text-text-light-secondary dark:text-text-dark-secondary" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          <button className="md:hidden p-2 text-slate-600 dark:text-slate-300" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-surface-light dark:bg-surface-dark-raised border-b border-border-light dark:border-border-dark py-3 px-6 space-y-1 overflow-hidden"
+              className="md:hidden bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 py-4 px-6 space-y-4 overflow-hidden"
             >
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="block w-full text-left text-sm font-medium text-text-light-muted dark:text-text-dark-muted hover:text-accent dark:hover:text-accent hover:bg-accent-glow px-3 py-2 transition-all duration-150"
+                  className="block w-full text-left text-base font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {item.label}
                 </button>
@@ -119,7 +120,7 @@ export default function Home() {
       <main className="pt-24 pb-20 space-y-24 md:space-y-32">
         {/* About / Hero Section */}
         <section id="about" className="container-width scroll-mt-24 space-y-12">
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -127,53 +128,55 @@ export default function Home() {
           >
             <div className="space-y-6">
               <div>
-                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-text-light-primary dark:text-text-dark-primary mb-4 leading-tight">
+                <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 mb-6">
                   {profile.name}
                 </h1>
-                <div className="space-y-0.5">
-                  <h2 className="text-lg md:text-xl font-medium text-text-light-muted dark:text-text-dark-muted tracking-tight">
+                <div className="space-y-1">
+                  <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300">
                     {profile.role.split('\n')[0]}
                   </h2>
                   {profile.role.includes('\n') && (
-                    <h2 className="text-lg md:text-xl font-medium text-text-light-muted dark:text-text-dark-muted tracking-tight">
-                      <a href="https://thinkingmachines.ai" target="_blank" className="hover:text-accent transition-colors duration-150">
+                    <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300">
+                      <a href="https://thinkingmachines.ai" target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                         @thinkingmachines
                       </a>
                     </h2>
                   )}
                 </div>
               </div>
-
-              <div className="flex gap-1">
-                <SocialLink href={profile.social.github} icon={<Github size={18} />} label="GitHub" variant="icon" />
-                <SocialLink href={profile.social.scholar} icon={<BookOpen size={18} />} label="Scholar" variant="icon" />
-                <SocialLink href={profile.social.twitter} icon={<Twitter size={18} />} label="Twitter" variant="icon" />
-                <SocialLink href={profile.social.linkedin} icon={<Linkedin size={18} />} label="LinkedIn" variant="icon" />
-                <SocialLink href={`mailto:${profile.email}`} icon={<Mail size={18} />} label="Email" variant="icon" />
+              
+              <div className="flex gap-3">
+                <SocialLink href={profile.social.github} icon={<Github size={24} />} label="GitHub" variant="icon" />
+                <SocialLink href={profile.social.scholar} icon={<BookOpen size={24} />} label="Scholar" variant="icon" />
+                <SocialLink href={profile.social.twitter} icon={<Twitter size={24} />} label="Twitter" variant="icon" />
+                <SocialLink href={profile.social.linkedin} icon={<Linkedin size={24} />} label="LinkedIn" variant="icon" />
+                <SocialLink href={profile.social.resume} icon={<FileText size={24} />} label="Resume" variant="icon" />
+                <SocialLink href={`mailto:${profile.email}`} icon={<Mail size={24} />} label="Email" variant="icon" />
               </div>
             </div>
 
             <div className="relative w-full max-w-sm mx-auto md:max-w-none group">
-              <div className="relative aspect-[3/2] overflow-hidden border border-border-light dark:border-border-dark group-hover:border-accent/40 transition-all duration-300">
-                 <ExportedImage
-                  src="/assets/img/profile.jpeg"
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl blur opacity-10 group-hover:opacity-25 transition duration-1000 dark:opacity-25 dark:group-hover:opacity-50"></div>
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                 <ExportedImage 
+                  src="/assets/img/profile.jpeg" 
                   alt="Yujia Bao"
                   fill
-                  className="object-cover saturate-[0.85] brightness-[1.02] sepia-[0.08]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   priority
                 />
               </div>
             </div>
           </motion.div>
 
-          <div
-            className="glass-panel p-8 prose dark:prose-invert max-w-none text-base text-text-light-secondary dark:text-text-dark-secondary leading-relaxed space-y-4"
+          <div 
+            className="glass-panel p-8 rounded-2xl prose dark:prose-invert max-w-none text-lg text-slate-600 dark:text-slate-300 leading-relaxed space-y-6"
           >
             {profile.bio.split('\n\n').map((paragraph, i) => (
               <p key={i} dangerouslySetInnerHTML={{ __html: paragraph.trim() }} />
             ))}
             <p>
-              I received my Ph.D. in Computer Science from <a href="https://www.csail.mit.edu" className="text-accent hover:text-accent-hover transition-colors duration-150 underline decoration-accent/30 underline-offset-2">MIT CSAIL</a>, advised by <a href="https://www.regina.csail.mit.edu" className="text-accent hover:text-accent-hover transition-colors duration-150 underline decoration-accent/30 underline-offset-2">Regina Barzilay</a>.
+              I received my Ph.D. in Computer Science from <a href="https://www.csail.mit.edu" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">MIT CSAIL</a>, advised by <a href="https://www.regina.csail.mit.edu" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">Regina Barzilay</a>.
             </p>
           </div>
         </section>
@@ -183,36 +186,36 @@ export default function Home() {
           <SectionTitle className="mb-12">Experience & Education</SectionTitle>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <h3 className="text-sm font-semibold tracking-wide uppercase text-text-light-primary dark:text-text-dark-primary border-b border-border-light dark:border-border-dark pb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-accent"></span>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800 pb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                 Professional Experience
               </h3>
               <div className="space-y-8">
                 {profile.experience.map((exp, idx) => (
-                  <div key={idx} className="relative pl-8 border-l border-border-light dark:border-border-dark">
-                    <div className="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-border-light dark:bg-border-dark"></div>
-                    <div className="text-xs font-semibold tracking-wide text-accent mb-1">{exp.year}</div>
-                    <h4 className="text-base font-semibold text-text-light-primary dark:text-text-dark-primary tracking-tight">{exp.role}</h4>
-                    <div className="text-text-light-muted dark:text-text-dark-muted text-sm font-medium mb-2">{exp.company}</div>
-                    <p className="text-text-light-secondary dark:text-text-dark-secondary text-sm leading-relaxed">{exp.description}</p>
+                  <div key={idx} className="relative pl-8 border-l border-slate-200 dark:border-slate-800">
+                    <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600"></div>
+                    <div className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1">{exp.year}</div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">{exp.role}</h4>
+                    <div className="text-slate-600 dark:text-slate-400 font-medium mb-2">{exp.company}</div>
+                    <p className="text-slate-500 text-sm leading-relaxed">{exp.description}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-sm font-semibold tracking-wide uppercase text-text-light-primary dark:text-text-dark-primary border-b border-border-light dark:border-border-dark pb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-accent"></span>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800 pb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-violet-500"></span>
                 Education
               </h3>
               <div className="space-y-8">
                 {profile.education.map((edu, idx) => (
-                  <div key={idx} className="relative pl-8 border-l border-border-light dark:border-border-dark">
-                     <div className="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-border-light dark:bg-border-dark"></div>
-                    <div className="text-xs font-semibold tracking-wide text-accent mb-1">{edu.year}</div>
-                    <h4 className="text-base font-semibold text-text-light-primary dark:text-text-dark-primary tracking-tight">{edu.degree}</h4>
-                    <div className="text-text-light-muted dark:text-text-dark-muted text-sm font-medium mb-1">{edu.school}</div>
-                    {edu.advisor && <div className="text-text-light-secondary dark:text-text-dark-secondary text-sm">Advisor: {edu.advisor}</div>}
+                  <div key={idx} className="relative pl-8 border-l border-slate-200 dark:border-slate-800">
+                     <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600"></div>
+                    <div className="text-sm font-semibold text-violet-600 dark:text-violet-400 mb-1">{edu.year}</div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">{edu.degree}</h4>
+                    <div className="text-slate-600 dark:text-slate-400 font-medium mb-1">{edu.school}</div>
+                    {edu.advisor && <div className="text-slate-500 text-sm">Advisor: {edu.advisor}</div>}
                   </div>
                 ))}
               </div>
@@ -223,51 +226,27 @@ export default function Home() {
         {/* Recent Work Section */}
         <section id="work" className="container-width scroll-mt-24">
           <SectionTitle className="mb-12">Recent Work</SectionTitle>
-          <div className="space-y-4">
-            {/* Featured: first item full width */}
-            {profile.recentWork.slice(0, 1).map((work, idx) => (
-              <div key={idx} className="group glass-panel p-6 hover:border-accent/40 hover:shadow-[0_2px_16px_rgba(181,146,107,0.06)] transition-all duration-200 hover:-translate-y-px">
-                <h3 className="text-base font-semibold text-text-light-primary dark:text-text-dark-primary mb-2 group-hover:text-accent transition-colors duration-150 tracking-tight">{work.title}</h3>
-                <p className="text-text-light-secondary dark:text-text-dark-secondary text-sm mb-5 leading-relaxed max-w-2xl">
+          <div className="grid md:grid-cols-3 gap-6">
+            {profile.recentWork.map((work, idx) => (
+              <div key={idx} className="group glass-panel rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800/50 hover:shadow-md dark:hover:shadow-none transition-all hover:-translate-y-1 duration-300">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{work.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
                   {work.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {work.links.map((link, lIdx) => (
-                    <a
-                      key={lIdx}
+                    <a 
+                      key={lIdx} 
                       href={link.url}
                       target="_blank"
-                      className="inline-flex items-center text-xs font-medium text-text-light-secondary dark:text-text-dark-secondary border border-border-light dark:border-border-dark px-2.5 py-1 hover:border-accent/50 hover:text-accent transition-all duration-150"
+                      className="inline-flex items-center text-xs font-semibold text-blue-600 dark:text-blue-300 bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 px-3 py-1.5 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500/20 hover:border-blue-600 dark:hover:border-blue-500/40 transition-all"
                     >
-                      {link.name} <ExternalLink size={10} className="ml-1" />
+                      {link.name} <ExternalLink size={12} className="ml-1" />
                     </a>
                   ))}
                 </div>
               </div>
             ))}
-            {/* Remaining items: two columns */}
-            <div className="grid md:grid-cols-2 gap-4">
-              {profile.recentWork.slice(1).map((work, idx) => (
-                <div key={idx} className="group glass-panel p-5 hover:border-accent/40 hover:shadow-[0_2px_16px_rgba(181,146,107,0.06)] transition-all duration-200 hover:-translate-y-px">
-                  <h3 className="text-sm font-semibold text-text-light-primary dark:text-text-dark-primary mb-2 group-hover:text-accent transition-colors duration-150 tracking-tight">{work.title}</h3>
-                  <p className="text-text-light-secondary dark:text-text-dark-secondary text-xs mb-5 leading-relaxed">
-                    {work.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {work.links.map((link, lIdx) => (
-                      <a
-                        key={lIdx}
-                        href={link.url}
-                        target="_blank"
-                        className="inline-flex items-center text-xs font-medium text-text-light-secondary dark:text-text-dark-secondary border border-border-light dark:border-border-dark px-2.5 py-1 hover:border-accent/50 hover:text-accent transition-all duration-150"
-                      >
-                        {link.name} <ExternalLink size={10} className="ml-1" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -278,45 +257,45 @@ export default function Home() {
               <SectionTitle className="mb-0">Publications</SectionTitle>
               <button
                 onClick={toggleAllTldrs}
-                className="inline-flex items-center text-xs font-medium tracking-wide text-text-light-muted hover:text-accent dark:text-text-dark-muted dark:hover:text-accent transition-colors duration-150"
+                className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-slate-400 hover:text-blue-600 dark:text-slate-500 dark:hover:text-blue-400 transition-colors"
               >
                 {expandedPapers.size > 0 ? "[ Collapse all ]" : "[ Expand all TL;DRs ]"}
               </button>
             </div>
-            <p className="text-xs text-text-light-muted dark:text-text-dark-muted">
-              See <a href="https://scholar.google.com/citations?user=Ee4Peu4AAAAJ&hl=en" target="_blank" className="text-accent hover:underline">Google Scholar</a> for full list of publications.
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              See <a href="https://scholar.google.com/citations?user=Ee4Peu4AAAAJ&hl=en" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">Google Scholar</a> for full list of publications.
             </p>
           </div>
-
-          <div className="space-y-10">
+          
+          <div className="space-y-12">
             {Array.from(new Set(publications.map(p => p.year)))
               .sort((a, b) => b - a)
               .map(year => (
-                <div key={year} className="space-y-4">
+                <div key={year} className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <h3 className="text-lg font-semibold text-text-light-primary dark:text-text-dark-primary tracking-tight">{year}</h3>
-                    <div className="h-px bg-border-light dark:bg-border-dark flex-1"></div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{year}</h3>
+                    <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-6">
                     {publications.filter(p => p.year === year).map((pub) => (
-                      <div
-                        key={pub.id}
+                      <div 
+                        key={pub.id} 
                         onClick={() => togglePaper(pub.id)}
-                        className="group flex flex-col space-y-2 p-3 -mx-3 hover:bg-surface-light-raised dark:hover:bg-surface-dark-raised transition-all duration-150 border border-transparent hover:border-border-light dark:hover:border-border-dark cursor-pointer"
+                        className="group flex flex-col space-y-3 p-4 -mx-4 rounded-xl hover:bg-white dark:hover:bg-slate-900/40 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800/50 hover:shadow-sm dark:hover:shadow-none cursor-pointer"
                       >
                         <div className="space-y-1">
-                          <h4 className="text-sm font-semibold text-text-light-primary dark:text-text-dark-primary leading-snug group-hover:text-accent transition-colors duration-150 tracking-tight">
+                          <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-200 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                             {pub.title}
                           </h4>
-                          <div className="text-text-light-muted dark:text-text-dark-muted text-xs">
+                          <div className="text-slate-600 dark:text-slate-400 text-sm">
                             {pub.authors.map((author, i) => (
-                              <span key={i} className={author.includes("Yujia Bao") ? "font-semibold text-text-light-primary dark:text-text-dark-primary" : ""}>
+                              <span key={i} className={author.includes("Yujia Bao") ? "font-bold text-slate-900 dark:text-slate-100" : ""}>
                                 {author}{i < pub.authors.length - 1 ? ", " : ""}
                               </span>
                             ))}
                           </div>
-
-                          <div className="text-xs text-text-light-muted dark:text-text-dark-muted font-medium">
+                          
+                          <div className="text-sm text-slate-500 font-medium">
                             {pub.venue}
                           </div>
 
@@ -328,61 +307,61 @@ export default function Home() {
                                 animate="expanded"
                                 exit="collapsed"
                                 variants={{
-                                  expanded: {
-                                    opacity: 1,
-                                    height: "auto",
-                                    marginTop: "0.5rem",
+                                  expanded: { 
+                                    opacity: 1, 
+                                    height: "auto", 
+                                    marginTop: "0.5rem", 
                                     marginBottom: "0.25rem",
-                                    transition: {
+                                    transition: { 
                                       duration: 0.4,
-                                      type: "spring",
+                                      type: "spring", 
                                       bounce: 0,
-                                      opacity: { duration: 0.25, delay: 0.1 }
-                                    }
+                                      opacity: { duration: 0.25, delay: 0.1 } 
+                                    } 
                                   },
-                                  collapsed: {
-                                    opacity: 0,
-                                    height: 0,
-                                    marginTop: 0,
+                                  collapsed: { 
+                                    opacity: 0, 
+                                    height: 0, 
+                                    marginTop: 0, 
                                     marginBottom: 0,
-                                    transition: {
+                                    transition: { 
                                       duration: 0.3,
-                                      type: "spring",
+                                      type: "spring", 
                                       bounce: 0,
-                                      opacity: { duration: 0.15 }
+                                      opacity: { duration: 0.15 } 
                                     }
                                   }
                                 }}
                                 className="overflow-hidden"
                               >
-                                <div className="text-xs text-text-light-secondary dark:text-text-dark-secondary bg-surface-light-raised dark:bg-surface-dark-raised px-3 py-2 border-l-2 border-accent italic leading-relaxed">
+                                <div className="text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50 px-3 py-2 rounded-md border-l-4 border-blue-600 dark:border-blue-500 italic">
                                   {pub.tldr}
                                 </div>
                               </motion.div>
                             )}
                           </AnimatePresence>
                         </div>
-
-                        <div className="flex flex-wrap gap-2 items-center">
+                        
+                        <div className="flex flex-wrap gap-3 items-center">
                           {pub.arxiv && (
-                            <a
+                            <a 
                               href={`https://arxiv.org/abs/${pub.arxiv}`}
                               target="_blank"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium text-text-light-muted dark:text-text-dark-muted border border-border-light dark:border-border-dark hover:border-accent/50 hover:text-accent transition-all duration-150"
+                              className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all"
                             >
-                              <FileText size={12} />
+                              <FileText size={14} className="text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                               Paper
                             </a>
                           )}
                           {pub.code && (
-                            <a
-                              href={pub.code}
+                            <a 
+                              href={pub.code} 
                               target="_blank"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium text-text-light-muted dark:text-text-dark-muted border border-border-light dark:border-border-dark hover:border-accent/50 hover:text-accent transition-all duration-150"
+                              className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all"
                             >
-                              <Code size={12} />
+                              <Code size={14} className="text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                               Code
                             </a>
                           )}
@@ -397,10 +376,10 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border-light dark:border-border-dark py-10 transition-colors">
+      <footer className="border-t border-slate-200/60 dark:border-slate-800/50 py-12 bg-slate-100/50 dark:bg-slate-950 transition-colors">
         <div className="container-width flex justify-center">
-          <div className="text-text-light-muted dark:text-text-dark-muted text-xs tracking-wide">
-            © {new Date().getFullYear()} Yujia Bao
+          <div className="text-slate-500 dark:text-slate-600 text-sm">
+            © {new Date().getFullYear()} Yujia Bao. All rights reserved.
           </div>
         </div>
       </footer>
@@ -410,7 +389,7 @@ export default function Home() {
 
 function SectionTitle({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
-    <h2 className={cn("text-2xl md:text-3xl font-semibold tracking-tight text-text-light-primary dark:text-text-dark-primary", className)}>
+    <h2 className={cn("text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100", className)}>
       {children}
     </h2>
   );
@@ -428,9 +407,9 @@ function SocialLink({
   variant?: "pill" | "text" | "icon"
 }) {
   const variants = {
-    pill: "bg-surface-light-raised dark:bg-surface-dark-raised text-text-light-secondary dark:text-text-dark-secondary px-4 py-2 font-medium text-sm border border-border-light dark:border-border-dark hover:border-accent/50 hover:text-accent transition-all duration-150",
-    text: "text-text-light-muted dark:text-text-dark-muted hover:text-accent",
-    icon: "text-text-light-muted dark:text-text-dark-muted hover:text-accent hover:bg-accent-glow p-2 transition-all duration-150"
+    pill: "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full font-medium text-sm border border-slate-200 dark:border-transparent hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-100 shadow-sm dark:shadow-none transition-all",
+    text: "text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-300",
+    icon: "text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-slate-800 p-2.5 rounded-full transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm dark:hover:shadow-none"
   };
 
   return (

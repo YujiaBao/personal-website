@@ -2,63 +2,19 @@
 
 @theme {
   --font-sans: var(--font-open-sans), var(--font-inter);
-
-  /* Accent */
-  --color-accent: #b5926b;
-  --color-accent-hover: #a07e59;
-  --color-accent-glow: rgba(181, 146, 107, 0.10);
-
-  /* Light mode surfaces */
-  --color-surface-light: #f7f5f0;
-  --color-surface-light-raised: #efece5;
-  --color-border-light: #ddd8ce;
-  --color-text-light-primary: #1a1816;
-  --color-text-light-secondary: #6b6560;
-  --color-text-light-muted: #9b9590;
-
-  /* Dark mode surfaces */
-  --color-surface-dark: #0e0e0d;
-  --color-surface-dark-raised: #1a1918;
-  --color-border-dark: #2c2926;
-  --color-text-dark-primary: #e4e1dd;
-  --color-text-dark-secondary: #9b9590;
-  --color-text-dark-muted: #6b6560;
-
+  
   /* Custom Animations */
   --animate-fade-in: fadeIn 0.5s ease-out forwards;
   --animate-slide-up: slideUp 0.5s ease-out forwards;
-
+  
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-
+  
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-}
-
-/* Adaptive properties that switch with color scheme */
-:root {
-  --panel-bg: transparent;
-  --panel-border: var(--color-border-light);
-  --scrollbar-track: var(--color-surface-light);
-  --scrollbar-thumb: var(--color-border-light);
-  --scrollbar-thumb-hover: var(--color-text-light-muted);
-  --selection-bg: rgba(181, 146, 107, 0.15);
-  --selection-color: var(--color-text-light-primary);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --panel-bg: transparent;
-    --panel-border: var(--color-border-dark);
-    --scrollbar-track: var(--color-surface-dark);
-    --scrollbar-thumb: var(--color-border-dark);
-    --scrollbar-thumb-hover: var(--color-text-dark-muted);
-    --selection-bg: rgba(181, 146, 107, 0.25);
-    --selection-color: var(--color-text-dark-primary);
   }
 }
 
@@ -66,40 +22,50 @@
   .container-width {
     @apply max-w-5xl mx-auto px-6 md:px-12;
   }
-
+  
+  /* Shared Glass Panel - Improved for Light Mode */
   .glass-panel {
-    @apply transition-all duration-200;
-    background-color: var(--panel-bg);
-    border: 1px solid var(--panel-border);
+    @apply backdrop-blur-md border transition-all duration-300;
+    /* Light Mode: Subtle white tint, very soft border, and soft shadow */
+    @apply bg-white/40 border-slate-200/50 shadow-sm shadow-slate-100;
+    /* Dark Mode: Deep slate tint, refined border, and subtle glow */
+    @apply dark:bg-slate-900/40 dark:border-slate-800/50 dark:shadow-black/20;
   }
-
+  
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r;
-    @apply from-accent to-accent-hover;
+    @apply from-blue-600 to-violet-600;
+    @apply dark:from-blue-400 dark:to-violet-400;
+  }
+
+  .text-gradient-subtle {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+    @apply from-slate-700 to-slate-900;
+    @apply dark:from-slate-200 dark:to-slate-400;
   }
 }
 
 /* Base Styles */
 body {
-  background-color: var(--color-surface-light);
-  color: var(--color-text-light-secondary);
-  @apply antialiased transition-colors duration-300;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-surface-dark);
-    color: var(--color-text-dark-secondary);
-  }
+  @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300;
+  @apply dark:bg-slate-950 dark:text-slate-300;
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--scrollbar-track); }
-::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); }
-::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-50 dark:bg-slate-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300;
+  @apply dark:bg-slate-800 dark:hover:bg-slate-700;
+}
 
 ::selection {
-  background: var(--selection-bg);
-  color: var(--selection-color);
+  @apply bg-blue-500/10 text-blue-700;
+  @apply dark:bg-blue-500/30 dark:text-blue-200;
 }
