@@ -8,7 +8,6 @@ export const profile = {
     twitter: "https://twitter.com/yujia_bao",
     linkedin: "https://linkedin.com/in/yujia-bao-506b76130",
     scholar: "https://scholar.google.com/citations?user=Ee4Peu4AAAAJ",
-    resume: "/assets/pdf/resume.pdf",
   },
   bio: `
     I am a machine learning researcher and a life-long engineer. I love building things—pushing the frontier of AI to make it more useful, safe, and available to everyone.

@@ -150,7 +150,6 @@ export default function Home() {
                 <SocialLink href={profile.social.scholar} icon={<BookOpen size={24} />} label="Scholar" variant="icon" />
                 <SocialLink href={profile.social.twitter} icon={<Twitter size={24} />} label="Twitter" variant="icon" />
                 <SocialLink href={profile.social.linkedin} icon={<Linkedin size={24} />} label="LinkedIn" variant="icon" />
-                <SocialLink href={profile.social.resume} icon={<FileText size={24} />} label="Resume" variant="icon" />
                 <SocialLink href={`mailto:${profile.email}`} icon={<Mail size={24} />} label="Email" variant="icon" />
               </div>
             </div>
