@@ -414,11 +414,12 @@ function SocialLink({
     icon: "text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-slate-800 p-2.5 rounded-full transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm dark:hover:shadow-none"
   };
 
+  const isExternal = !(href.startsWith("mailto:") || href.startsWith("#"));
+
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn("inline-flex items-center gap-2 transition-colors", variants[variant])}
       aria-label={label}
     >

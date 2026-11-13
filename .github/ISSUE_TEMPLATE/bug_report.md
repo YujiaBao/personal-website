@@ -28,10 +28,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **System (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser (and its version) [e.g. chrome, safari]
- - Jekyll version [e.g. 3.8.7]
-- Ruby version [e.g. 2.6.5]
+ - OS: [e.g. macOS 15, Windows 11]
+ - Browser (and its version) [e.g. Chrome, Safari]
+ - Node.js version (if reproducing locally) [e.g. 20.9.0]
 
 **Additional context**
 Add any other context about the problem here.
