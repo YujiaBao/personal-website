@@ -19,7 +19,7 @@ It is built as a modern, static portfolio site using **Next.js** and **Tailwind 
 
 ### Prerequisites
 
--   Node.js (v18 or higher)
+-   Node.js (v20.9.0 or higher, excluding v21.x)
 -   npm
 
 ### Installation
