@@ -68,7 +68,7 @@ export default function Home() {
           <div 
             className={cn(
               "text-xl font-medium tracking-normal cursor-pointer transition-opacity duration-300 text-slate-900 dark:text-slate-100",
-              showNavName ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto md:opacity-0" 
+              showNavName ? "opacity-100" : "opacity-0 pointer-events-none"
             )}
             onClick={() => scrollTo("about")}
           >
@@ -137,7 +137,7 @@ export default function Home() {
                   </h2>
                   {profile.role.includes('\n') && (
                     <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300">
-                      <a href="https://thinkingmachines.ai" target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      <a href="https://thinkingmachines.ai" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                         @thinkingmachines
                       </a>
                     </h2>
@@ -172,7 +172,7 @@ export default function Home() {
             className="glass-panel p-8 rounded-2xl prose dark:prose-invert max-w-none text-lg text-slate-600 dark:text-slate-300 leading-relaxed space-y-6"
           >
             {profile.bio.split('\n\n').map((paragraph, i) => (
-              <p key={i} dangerouslySetInnerHTML={{ __html: paragraph.trim() }} />
+              <p key={i}>{paragraph.trim()}</p>
             ))}
             <p>
               I received my Ph.D. in Computer Science from <a href="https://www.csail.mit.edu" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">MIT CSAIL</a>, advised by <a href="https://www.regina.csail.mit.edu" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">Regina Barzilay</a>.
@@ -235,9 +235,10 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {work.links.map((link, lIdx) => (
                     <a 
-                      key={lIdx} 
+                      key={lIdx}
                       href={link.url}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center text-xs font-semibold text-blue-600 dark:text-blue-300 bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 px-3 py-1.5 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500/20 hover:border-blue-600 dark:hover:border-blue-500/40 transition-all"
                     >
                       {link.name} <ExternalLink size={12} className="ml-1" />
@@ -262,7 +263,7 @@ export default function Home() {
               </button>
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              See <a href="https://scholar.google.com/citations?user=Ee4Peu4AAAAJ&hl=en" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">Google Scholar</a> for full list of publications.
+              See <a href={profile.social.scholar} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Google Scholar</a> for full list of publications.
             </p>
           </div>
           
@@ -346,6 +347,7 @@ export default function Home() {
                             <a 
                               href={`https://arxiv.org/abs/${pub.arxiv}`}
                               target="_blank"
+                              rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all"
                             >
@@ -355,8 +357,9 @@ export default function Home() {
                           )}
                           {pub.code && (
                             <a 
-                              href={pub.code} 
+                              href={pub.code}
                               target="_blank"
+                              rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all"
                             >
@@ -415,6 +418,7 @@ function SocialLink({
     <a
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
       className={cn("inline-flex items-center gap-2 transition-colors", variants[variant])}
       aria-label={label}
     >
